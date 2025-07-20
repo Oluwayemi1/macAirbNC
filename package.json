@@ -1,0 +1,26 @@
+{
+  "name": "macairbnc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node db/seedrun.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oluwayemi1/macAirbNC.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Oluwayemi1/macAirbNC/issues"
+  },
+  "homepage": "https://github.com/Oluwayemi1/macAirbNC#readme",
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "pg": "^8.16.3",
+    "pg-format": "^1.0.4"
+  }
+}
