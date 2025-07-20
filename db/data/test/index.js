@@ -6,12 +6,48 @@ exports.propertyTypesData = require("./property-types.json");
 exports.reviewsData = require("./reviews.json");
 exports.usersData = require("./users.json");
 
-require("dotenv").config();
+const formattedPropertyTypes = this.propertyTypesData.map(
+  ({ property_type, description }) => [property_type, description]
+);
 
-const { Pool } = require("pg");
+const formattedUsers = this.usersData.map(
+  ({ first_name, surname, email, phone_number, is_host, avatar }) => [
+    first_name,
+    surname,
+    email,
+    phone_number,
+    is_host,
+    avatar,
+  ]
+);
 
-const pool = new Pool();
+// const formattedProperties = this.propertiesData.map(
+//   ({
+//     name,
+//     property_type,
+//     location,
+//     price_per_night,
+//     description,
+//     host_name,
+//     amenities,
+//   }) => [
+//     name,
+//     property_type,
+//     location,
+//     price_per_night,
+//     description,
+//     host_name,
+//     amenities,
+//   ]
+// );
 
-pool.query("SELECT * FROM airbnc_test").then(() => {
-  console.log("query made");
-});
+// const formattedReviews = this.reviewsData.map(
+//   ({ guest_name, property_name, rating, comment, created_at }) => [
+//     guest_name,
+//     property_name,
+//     rating,
+//     comment,
+//     created_at,
+//   ]
+// );
+module.exports = { formattedPropertyTypes, formattedUsers };

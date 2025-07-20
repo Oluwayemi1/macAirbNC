@@ -1,6 +1,8 @@
 const db = require("./connection");
+const format = require("pg-format");
 
-async function seed() {
+// users, properties, reviews
+async function seed(property_types, users) {
   await db.query("DROP TABLE IF EXISTS bookings;");
   await db.query("DROP TABLE IF EXISTS favourites;");
   await db.query("DROP TABLE IF EXISTS reviews;");
@@ -61,7 +63,18 @@ async function seed() {
         check_out_date DATE NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);`);
 
-  console.log("what app are you creating?");
+  await db.query(
+    format(
+      `INSERT INTO property_types(property_type, description) VALUES %L`,
+      property_types
+    )
+  );
+  await db.query(
+    format(
+      `INSERT INTO users (first_name, surname, email, phone_number, is_host, avatar) VALUES %L`,
+      users
+    )
+  );
 }
 
 module.exports = seed;
