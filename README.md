@@ -1,16 +1,29 @@
 # AirBNC
 
-Repo created using template in github
+An app like AirBnB
 
-Database created using SQL commands in the psql prompt
+# Get started with the below steps
 
-Tables created in the database, with consideration for their dependencies:
-amenities
-property_types
-users
-properties
-images
-properties_amenities
-favourites
-reviews
-bookings
+Install all necessary dependencies using
+
+```sh
+npm install
+```
+
+Create an airbnc_test by running
+
+```sh
+npm run setup-db
+```
+
+Create credentials for an .env file to access the database
+
+```sh
+PGDATABASE=airbnc_test
+```
+
+Seed the database by running
+
+```sh
+npm run seed
+```

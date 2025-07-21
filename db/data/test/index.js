@@ -50,4 +50,25 @@ const formattedUsers = this.usersData.map(
 //     created_at,
 //   ]
 // );
+
+let count = 1;
+const userNames = this.usersData.map(
+  ({ first_name, surname, email, phone_number, is_host, avatar }) => [
+    count++,
+    first_name + " " + surname,
+  ]
+);
+
+const hostName = this.propertiesData.map(
+  ({
+    name,
+    property_type,
+    location,
+    price_per_night,
+    description,
+    host_name,
+    amenities,
+  }) => [host_name]
+);
+
 module.exports = { formattedPropertyTypes, formattedUsers };
