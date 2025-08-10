@@ -10,8 +10,6 @@ const {
   reformattedProperties,
   usersWithReviews,
 } = require("./utils");
-// const data = require("../db/data/test/index");
-// const { propertyTypesData, propertiesData, usersData, reviewsData } = data;
 
 async function seed(propertyTypes, users, properties, reviews) {
   await manageTables();
