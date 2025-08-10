@@ -1,13 +1,8 @@
 const seed = require("./seed");
-// const data = require("./data/test/index");
+const data = require("../db/data/test/index");
+const db = require("./connection.js");
+const { propertyTypesData, usersData, reviewsData, propertiesData } = data;
 
-// const {
-//   formattedPropertyTypes,
-//   formattedProperties,
-//   formattedUsers,
-//   formattedReviews,
-// } = data;
-
-const { formattedPropertyTypes, formattedUsers } = require("./data/test/index");
-
-seed(formattedPropertyTypes, formattedUsers);
+seed(propertyTypesData, usersData, propertiesData, reviewsData).then(() =>
+  db.end()
+);

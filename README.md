@@ -10,7 +10,7 @@ Install all necessary dependencies using
 npm install
 ```
 
-Create an airbnc_test by running
+Create an airbnc_test database by running
 
 ```sh
 npm run setup-db
