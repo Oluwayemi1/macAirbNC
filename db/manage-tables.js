@@ -4,7 +4,7 @@ const {
   createUsersTable,
   createPropertiesTable,
   createReviewsTable,
-} = require("./queries");
+} = require("./create-table-queries");
 
 async function manageTables() {
   await db.query("DROP TABLE IF EXISTS reviews;");
