@@ -1,5 +1,5 @@
 exports.createPropertyTypesTable = `CREATE TABLE property_types(
-         property_type VARCHAR NOT NULL PRIMARY KEY,
+        property_type VARCHAR NOT NULL PRIMARY KEY,
         description TEXT NOT NULL );`;
 exports.createUsersTable = `CREATE TABLE users(
         user_id SERIAL PRIMARY KEY,
