@@ -6,6 +6,7 @@ const {
   formattedUsers,
   formattedProperties,
   formattedReviews,
+  formattedFavourites,
 } = require("./utils");
 
 exports.insertPropertyTypes = (propertyTypes) => {
@@ -29,7 +30,7 @@ exports.insertUsers = (users) => {
 exports.insertProperties = (properties, propRef) => {
   return db.query(
     format(
-      `INSERT INTO properties(host_id, name, location, property_type, price_per_night, description) VALUES %L RETURNING *`,
+      `INSERT INTO properties (host_id, name, location, property_type, price_per_night, description) VALUES %L RETURNING *`,
       formattedProperties(properties, propRef)
     )
   );
@@ -38,8 +39,17 @@ exports.insertProperties = (properties, propRef) => {
 exports.insertReviews = (filteredReview) => {
   return db.query(
     format(
-      `INSERT INTO reviews(property_id, guest_id, rating, comment, created_at) VALUES %L`,
+      `INSERT INTO reviews (property_id, guest_id, rating, comment, created_at) VALUES %L`,
       formattedReviews(filteredReview)
+    )
+  );
+};
+
+exports.insertFavourites = (filteredFavourites) => {
+  return db.query(
+    format(
+      `INSERT INTO favourites (guest_id, property_id) VALUES %L`,
+      formattedFavourites(filteredFavourites)
     )
   );
 };

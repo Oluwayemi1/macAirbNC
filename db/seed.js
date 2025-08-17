@@ -4,14 +4,17 @@ const {
   insertUsers,
   insertProperties,
   insertReviews,
+  insertFavourites,
 } = require("./insert-data");
+
 const {
   reformattedUsers,
   reformattedProperties,
   usersWithReviews,
+  reformattedFavourites,
 } = require("./utils");
 
-async function seed(propertyTypes, users, properties, reviews) {
+async function seed(propertyTypes, users, properties, reviews, favourites) {
   await manageTables();
 
   await insertPropertyTypes(propertyTypes);
@@ -31,6 +34,14 @@ async function seed(propertyTypes, users, properties, reviews) {
   );
 
   await insertReviews(userReviews);
+
+  const usersWithFavourites = await reformattedFavourites(
+    favourites,
+    propertyWithUserRef,
+    propertyWithHostRef
+  );
+
+  await insertFavourites(usersWithFavourites);
 }
 
 module.exports = seed;

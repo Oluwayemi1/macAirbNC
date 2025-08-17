@@ -85,7 +85,36 @@ exports.usersWithReviews = (reviews, users, properties) => {
 };
 
 exports.formattedReviews = (userReviews) => {
-  return userReviews.filter((user) => {
-    if (user[1]) return user;
+  return userReviews.filter((userB) => {
+    if (userB[1]) {
+      return userB;
+    }
+  });
+};
+
+exports.reformattedFavourites = (favourites, users, properties) => {
+  return favourites.map((favourite) => {
+    const { guest_name, property_name } = favourite;
+    users.forEach((personFav) => {
+      const guest_id = personFav[favourite.guest_name];
+      if (guest_id) {
+        favourite.guest_id = guest_id;
+      }
+    });
+    properties.forEach((propertyFav) => {
+      const property_id = propertyFav[favourite.property_name];
+      if (property_id) {
+        favourite.property_id = property_id;
+      }
+    });
+    return [favourite.guest_id, favourite.property_id];
+  });
+};
+
+exports.formattedFavourites = (userFavourites) => {
+  return userFavourites.filter((userFavB) => {
+    if (userFavB[0]) {
+      return userFavB;
+    }
   });
 };

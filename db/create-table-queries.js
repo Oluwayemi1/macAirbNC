@@ -12,7 +12,7 @@ exports.createUsersTable = `CREATE TABLE users(
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);`;
 exports.createPropertiesTable = `CREATE TABLE properties(
         property_id SERIAL PRIMARY KEY,
-        host_id INT NOT NULL REFERENCES users(user_id),
+        host_id INT NOT NULL REFERENCES users(user_id) ON DELETE SET NULL,
         name VARCHAR NOT NULL,
         location VARCHAR NOT NULL,
         property_type VARCHAR NOT NULL REFERENCES property_types(property_type),
@@ -25,3 +25,7 @@ exports.createReviewsTable = `CREATE TABLE reviews(
         rating INT NOT NULL,
         comment TEXT,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);`;
+exports.createFavouritesTable = `CREATE TABLE favourites(
+        favourite_id SERIAL PRIMARY KEY, 
+        guest_id INT NOT NULL REFERENCES users(user_id) ON DELETE SET NULL,
+        property_id INT NOT NULL REFERENCES properties(property_id) ON DELETE SET NULL);`;
