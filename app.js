@@ -10,8 +10,10 @@ const {
   postPropertyReviewsById,
   deletePropertyReviewsById,
 } = require("./controllers/reviews.controller");
+const { pathNotFound } = require("./controllers/errors.controller");
 
 const app = express();
+app.use(express.json());
 
 app.get("/api/properties", getAllProperties);
 
@@ -25,4 +27,6 @@ app.post("/api/properties/:id/reviews", postPropertyReviewsById);
 
 app.delete("/api/reviews/:id", deletePropertyReviewsById);
 
-module.exports = { app };
+app.all("/*non-existent-path", pathNotFound);
+
+module.exports = app;
