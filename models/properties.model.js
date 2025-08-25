@@ -76,6 +76,10 @@ exports.selectPropertyById = (id, user_id) => {
     )
     .then(({ rows }) => {
       const property = { property: rows[0] };
+
+      if (!rows.length) {
+        return Promise.reject({ status: 404, msg: "Property not found" });
+      }
       return property;
     });
 };

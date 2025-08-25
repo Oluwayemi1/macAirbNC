@@ -26,6 +26,10 @@ afterAll(() => {
 });
 
 describe("app", () => {
+  test("responds with status 404 and a message when non-existent URL is entered", async () => {
+    const { body } = await request(app).get("/non-existent-url").expect(404);
+    expect(body.msg).toBe("URL not found");
+  });
   describe("GET - /api/properties", () => {
     test("returns status 200", async () => {
       await request(app).get("/api/properties").expect(200);
@@ -56,6 +60,18 @@ describe("app", () => {
         host_avatar: "https://example.com/images/alice.jpg",
         favourite_count: "4",
       });
+    });
+    test("returns status 400 and responds with error msg Bad Request when passed an invalid property_id", async () => {
+      const { body } = await request(app)
+        .get("/api/properties/invalid-id")
+        .expect(400);
+      expect(body.msg).toBe("Bad Request");
+    });
+    test("returns status 404 and responds with error msg Bad Request when passed an valid ID but not existing in DB", async () => {
+      const { body } = await request(app)
+        .get("/api/properties/999")
+        .expect(404);
+      expect(body.msg).toBe("Property not found");
     });
   });
   describe("GET - /api/properties?property_type=<property type>", () => {

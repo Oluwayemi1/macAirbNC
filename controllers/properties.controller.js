@@ -18,7 +18,12 @@ exports.getPropertyById = (req, res, next) => {
   const { id } = req.params;
   const { user_id } = req.query;
 
-  selectPropertyById(id, user_id).then((property) => {
-    res.send(property);
-  });
+  try {
+    selectPropertyById(id, user_id).then((property) => {
+      res.send(property);
+    });
+  } catch (err) {
+    console.log(err);
+    next(err);
+  }
 };
