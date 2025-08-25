@@ -58,7 +58,7 @@ exports.selectAllProperties = (
     });
 };
 
-exports.selectPropertiesById = (id, user_id) => {
+exports.selectPropertyById = (id, user_id) => {
   const queryValue = [id];
 
   let queryStrg =

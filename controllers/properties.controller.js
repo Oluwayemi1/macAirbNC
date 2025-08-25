@@ -1,6 +1,6 @@
 const {
   selectAllProperties,
-  selectPropertiesById,
+  selectPropertyById,
 } = require("../models/properties.model");
 
 exports.getAllProperties = (req, res, next) => {
@@ -14,11 +14,11 @@ exports.getAllProperties = (req, res, next) => {
   );
 };
 
-exports.getPropertiesById = (req, res, next) => {
+exports.getPropertyById = (req, res, next) => {
   const { id } = req.params;
   const { user_id } = req.query;
 
-  selectPropertiesById(id, user_id).then((property) => {
+  selectPropertyById(id, user_id).then((property) => {
     res.send(property);
   });
 };

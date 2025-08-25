@@ -2,7 +2,7 @@ const express = require("express");
 const db = require("./db/connection");
 const {
   getAllProperties,
-  getPropertiesById,
+  getPropertyById,
 } = require("./controllers/properties.controller");
 const { getUserById } = require("./controllers/users.controller");
 const {
@@ -17,7 +17,7 @@ app.use(express.json());
 
 app.get("/api/properties", getAllProperties);
 
-app.get("/api/properties/:id", getPropertiesById);
+app.get("/api/properties/:id", getPropertyById);
 
 app.get("/api/properties/:id/reviews", getPropertyReviewsById);
 

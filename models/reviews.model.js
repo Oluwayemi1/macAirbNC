@@ -24,7 +24,8 @@ exports.insertPropertyReviewsById = (id, guest_id, rating, comment) => {
       [id, guest_id, rating, comment]
     )
     .then(({ rows }) => {
-      return rows[0];
+      const newReview = { new_review: rows[0] };
+      return newReview;
     });
 };
 

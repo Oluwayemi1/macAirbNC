@@ -17,11 +17,9 @@ exports.getPropertyReviewsById = (req, res, next) => {
 exports.postPropertyReviewsById = (req, res, next) => {
   const { id } = req.params;
   const { guest_id, rating, comment } = req.body;
-  insertPropertyReviewsById(id, guest_id, rating, comment).then(
-    (new_review) => {
-      res.status(201).send(new_review);
-    }
-  );
+  insertPropertyReviewsById(id, guest_id, rating, comment).then((newReview) => {
+    res.status(201).send(newReview);
+  });
 };
 
 exports.deletePropertyReviewsById = (req, res, next) => {
