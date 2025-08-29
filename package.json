@@ -2,13 +2,16 @@
   "name": "macairbnc",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "listen.js",
   "scripts": {
     "test": "jest app.test.js",
     "test-utils": "jest utils.test.js",
     "setup-db": "psql -f db/setup.sql",
-    "seed": "node db/seedrun.js",
-    "dev": "nodemon listen.js"
+    "seed-dev": "node ./db/seedrun.js",
+    "seed-test": "NODE_ENV=test node ./db/seedrun.js",
+    "dev": "nodemon listen.js",
+    "start": "node listen.js",
+    "seed-prod": "NODE_ENV=production node ./db/seedrun.js"
   },
   "repository": {
     "type": "git",

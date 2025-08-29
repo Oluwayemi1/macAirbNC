@@ -1,5 +1,5 @@
 const seed = require("./seed");
-const data = require("../db/data/test/index");
+const data = require("../db/data");
 const db = require("./connection.js");
 const {
   propertyTypesData,
