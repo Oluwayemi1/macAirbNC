@@ -17,7 +17,10 @@ const {
 } = require("./controllers/errors.controller");
 
 const app = express();
+
 app.use(express.json());
+
+app.use(express.static("public"));
 
 app.get("/api/properties", getAllProperties);
 

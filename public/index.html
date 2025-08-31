@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="script.js"></script> -->
+    <title style="color: darkolivegreen; font-weight: bold">ABnC</title>
+  </head>
+  <body>
+    <h1>Welcome to AirBnC Reviews</h1>
+    <h4>You do the reviews, we make it available</h4>
+
+    <h4>https://abnc-rater.onrender.com/</h4>
+
+    <img src="./images/the-letters.jpg" width="180" height="120" />
+    <img src="./images/reviews.jpg" width="180" height="120" />
+    <br />
+    <h4>
+      Our endpoints are below to access our data
+      <br />
+      Just add the endpoint to our web address to get data related to the
+      endpoint
+    </h4>
+    <p>
+      Get "/api/properties"
+      <br />
+      This responds with an array of Properties;
+      <br />
+
+      Get "/api/properties/:id"
+      <br />
+      This responds with a single property with property ID specified in place
+      of :id
+      <br />
+
+      Get "/api/properties/:id/reviews"
+      <br />
+      This responds with the reviews on the property with property ID specified
+      in place of :id
+      <br />
+
+      Get "/api/users/:id"
+      <br />
+      This responds with details of the user with user ID specified in place of
+      :id
+      <br />
+      Post "/api/properties/:id/reviews"
+      <br />
+      This creates a new review on property ID specified in place of :id and
+      responds with the newly created review
+      <br />
+      Delete "/api/reviews/:id"
+      <br />
+      This deletes reviews done on property ID specified in place of :id
+
+      <br />
+      <button>Review!!!</button>
+      <br />
+    </p>
+  </body>
+</html>

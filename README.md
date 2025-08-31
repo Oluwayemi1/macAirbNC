@@ -25,11 +25,25 @@ PGDATABASE=airbnc_test
 Seed the database by running the following script
 
 ```sh
-npm run seed
+npm run seed-test (for test env)
+npm run seed-dev (for dev env)
 ```
 
 Switch on the server by running the following script. This script runs nodemon
 
 ```sh
 npm run dev
+```
+
+Run the app tests using the following
+
+```sh
+npm test
+```
+
+App hosted at
+
+```sh
+https://abnc-rater.onrender.com/
+
 ```
