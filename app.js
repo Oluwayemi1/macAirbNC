@@ -1,4 +1,6 @@
 const express = require("express");
+const cors = require("cors");
+app.use(cors());
 const db = require("./db/connection");
 const {
   getAllProperties,

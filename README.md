@@ -1,6 +1,6 @@
 # AirBNC
 
-An app like AirBnB
+An app to rate experiences in holiday properties like Airbnb
 
 # Get started with the below steps
 
@@ -20,6 +20,7 @@ Create credentials for an .env file to access the database
 
 ```sh
 PGDATABASE=airbnc_test
+PGDATABASE=airbnc_dev
 ```
 
 Seed the database by running the following script
