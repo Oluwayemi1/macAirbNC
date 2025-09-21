@@ -18,6 +18,7 @@ const {
   handleCustomErrors,
 } = require("./controllers/errors.controller");
 
+// app.use(cors());
 const app = express();
 
 app.use(express.json());
