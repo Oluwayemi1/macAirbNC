@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-app.use(cors());
+
 const db = require("./db/connection");
 const {
   getAllProperties,
@@ -18,8 +18,9 @@ const {
   handleCustomErrors,
 } = require("./controllers/errors.controller");
 
-// app.use(cors());
 const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 
